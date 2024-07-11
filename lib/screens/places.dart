@@ -2,8 +2,8 @@
 import 'package:greatplaces/widgets/places_list.dart';
 import 'package:flutter/material.dart';
 
-class Places extends StatelessWidget {
-  const Places({super.key});
+class PlacesScreen extends StatelessWidget {
+  const PlacesScreen({super.key});
 
   Widget build(BuildContext context) {
     return Scaffold(
