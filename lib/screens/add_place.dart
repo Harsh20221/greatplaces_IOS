@@ -21,20 +21,29 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Add New Place ')),
       body: SingleChildScrollView(
-          padding: const EdgeInsets.all(12),child: Column(
-        children: [
-          TextField(
-            decoration: const InputDecoration(labelText: 'Title'),
-            controller: _titleController,
-          ),
-          const SizedBox(height: 16),
-          ElevatedButton.icon(
-            onPressed: () {},
-            label: Text('Add place'), ///? In icon button child is renamed as label
-            icon: Icon(Icons.place), ///This is a icon type 
-          )
-        ],
-      )),
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            children: [
+              TextField(
+                decoration: const InputDecoration(labelText: 'Title'),
+                controller: _titleController,
+                style: TextStyle(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface), //? colorscheme.onBackground is depracted so we use .onSurface Instead
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {},
+                label: Text('Add place'),///? In icon button child is renamed as label
+
+               
+                icon: Icon(Icons.place),
+
+                ///This is a icon type
+              )
+            ],
+          )),
     );
   }
 }
