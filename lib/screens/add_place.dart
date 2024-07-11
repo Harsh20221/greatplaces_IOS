@@ -31,7 +31,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
           ElevatedButton.icon(
             onPressed: () {},
             label: Text('Add place'), ///? In icon button child is renamed as label
-            icon: Icon(Icons.place),
+            icon: Icon(Icons.place), ///This is a icon type 
           )
         ],
       )),
