@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:greatplaces/screens/places.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:greatplaces/providers/user_places.dart';
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 102, 6, 247),
@@ -28,7 +29,8 @@ final theme = ThemeData().copyWith(
 
 void main() {
   runApp(
-      const MyApp(),
+      const ProviderScope(child: MyApp()),  //# Here we are wrapping the MyApp with ProviderScope , 
+      //# This will enable us to use the Riverpod package in our App  and make the providers we created available to the whole app 
   );
 }
 
