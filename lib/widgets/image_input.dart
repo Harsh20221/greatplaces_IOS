@@ -34,11 +34,13 @@ class _ImageInputState extends State<ImageInput> {
 
     if (selectedimage != null) {
       //# This  Will help us display the image preview
+    setState(() { //!! DO not forget to put the image preview inside setState as this does change the entire state of the application
       content = Image.file(
         selectedimage!,
         fit: BoxFit.cover,
       ); //#When you use BoxFit.cover,
       //# the image is scaled to cover the entire widget's space
+    });  
     }
     return Container(
         alignment: Alignment.center,
