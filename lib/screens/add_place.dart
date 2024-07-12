@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greatplaces/providers/user_places.dart';
+import 'package:greatplaces/widgets/image_input.dart';
 
 class AddPlaceScreen extends ConsumerStatefulWidget {
   ////#Tip-- To create a Stateful Widget first
@@ -54,6 +55,7 @@ Navigator.pop(context);  //!! This is the correct way to write logic to get back
               ),
               const SizedBox(height: 16),
               ///ADD IMAGE LOGIC WILL GO HERE///
+              ImageInput(),
               ElevatedButton.icon(
                 onPressed:saveplace ,
                 label: Text('Add place'),///? In icon button child is renamed as label
