@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,12 +23,12 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
 //?Read the current value of the text field.
 //?Listen to changes in the text field.
 //?Modify the text in the text field programmatically.
-
+File ?selectedimage; ///This will help save images , it'll store image location
 void saveplace(){
   final enteredtitle=_titleController.text;
-  if(enteredtitle.isEmpty) return;
+  if(enteredtitle.isEmpty||selectedimage==null) return;
 
-ref.read(userPlacesNotifier.notifier).addPlace(enteredtitle);
+ref.read(userPlacesNotifier.notifier).addPlace(enteredtitle,selectedimage!);   ///This'll pass the image fle to add place
 Navigator.pop(context);  //!! This is the correct way to write logic to get back to previous screen
 ///!! Do not write like Navigator.of.pop....
 
@@ -54,8 +56,11 @@ Navigator.pop(context);  //!! This is the correct way to write logic to get back
                         .onSurface), //? colorscheme.onBackground is depracted so we use .onSurface Instead
               ),
               const SizedBox(height: 16),
+
               ///ADD IMAGE LOGIC WILL GO HERE///
-              ImageInput(),
+              ImageInput(onPickimage: (image) {
+                selectedimage=image;
+              },),
               ElevatedButton.icon(
                 onPressed:saveplace ,
                 label: Text('Add place'),///? In icon button child is renamed as label

@@ -4,7 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io'; //!! Very Imp to import to manage fileconversions and file variable assignment
 
 class ImageInput extends StatefulWidget {
-  const ImageInput({super.key});
+  const ImageInput({super.key,required this.onPickimage});
+  final void Function(File image) onPickimage; //? tHIS Will help save user picked image
 
   @override
   State<ImageInput> createState() => _ImageInputState();
@@ -23,7 +24,7 @@ class _ImageInputState extends State<ImageInput> {
     setState(() { ///! Do not forget to call setstate here too else preview will not display 
        selectedimage = File(pickedimage.path);
     });
-     
+     widget.onPickimage(selectedimage!); //? Executing on pick image to help save user picked image
     } //!! Its very Important to setup a if condition to check null image or else
     ///!! We will not be able to do this conversion and store the path
   }
