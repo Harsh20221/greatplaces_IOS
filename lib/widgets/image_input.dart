@@ -11,38 +11,44 @@ class ImageInput extends StatefulWidget {
 }
 
 class _ImageInputState extends State<ImageInput> {
-  File? selectedimage; //? A File holds a [path] on which operations can be performed.
-void _saveimage() async {
-final imagepicker = ImagePicker();
-final pickedimage =  await imagepicker.pickImage(source: ImageSource.camera,maxWidth: 600);
-if (pickedimage==null){
-  return;
-}
-else {
-selectedimage=File(pickedimage.path);} //!! Its very Important to setup a if condition to check null image or else
-///!! We will not be able to do this conversion and store the path 
-}
-
+  File?
+      selectedimage; //? A File holds a [path] on which operations can be performed.
+  void _saveimage() async {
+    final imagepicker = ImagePicker();
+    final pickedimage =
+        await imagepicker.pickImage(source: ImageSource.camera, maxWidth: 600);
+    if (pickedimage == null) {
+      return;
+    } else {
+      selectedimage = File(pickedimage.path);
+    } //!! Its very Important to setup a if condition to check null image or else
+    ///!! We will not be able to do this conversion and store the path
+  }
 
   Widget build(BuildContext context) {
+    ///Here we are showing image preview to the user
+    Widget content = TextButton.icon(
+        icon: const Icon(CupertinoIcons.camera), ////* Cupertino Icon
+        onPressed: _saveimage,
+        label: const Text('Take Picture'));
 
-///Here we are showing image preview to the user 
-
-
-
-
-
+    if (selectedimage != null) {
+      //# This  Will help us display the image preview
+      content = Image.file(
+        selectedimage!,
+        fit: BoxFit.cover,
+      ); //#When you use BoxFit.cover,
+      //# the image is scaled to cover the entire widget's space
+    }
     return Container(
         alignment: Alignment.center,
         width: double.infinity,
         height: 250,
-        decoration: BoxDecoration(  ///!! Make sure to remember border is placed under decoration
+        decoration: BoxDecoration(
+            ///!! Make sure to remember border is placed under decoration
             border: Border.all(
                 width: 1,
                 color: Theme.of(context).colorScheme.primary.withOpacity(0.2))),
-        child: TextButton.icon(
-            icon: const Icon(CupertinoIcons.camera), ////* Cupertino Icon
-            onPressed: _saveimage,
-            label: const Text('Take Picture')));
+        child: content);
   }
 }
