@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greatplaces/models/place.dart';
 
@@ -9,11 +11,11 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
       ///This Method we creatd will update the state
       : super(
             const []); //? Here we are initializing the state of the notifier with an empty list of places
-  void addPlace(String title) {
+  void addPlace(String title , File image) {
     //? This addPlace will be responsible for adding a new place in our App
     final newPlace = Place(
         title:
-            title); //? We are passing the argument of the function title to the title parameter
+            title,image: image); //? We are passing the argument of the function title to the title parameter
     state = [newPlace, ...state];
   }
 }
