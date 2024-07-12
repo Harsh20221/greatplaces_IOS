@@ -20,7 +20,10 @@ class _ImageInputState extends State<ImageInput> {
     if (pickedimage == null) {
       return;
     } else {
-      selectedimage = File(pickedimage.path);
+    setState(() { ///! Do not forget to call setstate here too else preview will not display 
+       selectedimage = File(pickedimage.path);
+    });
+     
     } //!! Its very Important to setup a if condition to check null image or else
     ///!! We will not be able to do this conversion and store the path
   }
@@ -35,9 +38,15 @@ class _ImageInputState extends State<ImageInput> {
     if (selectedimage != null) {
       //# This  Will help us display the image preview
     setState(() { //!! DO not forget to put the image preview inside setState as this does change the entire state of the application
-      content = Image.file(
-        selectedimage!,
-        fit: BoxFit.cover,
+      content = GestureDetector(
+        onTap: _saveimage ,
+        child: Image.file(
+          selectedimage!,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+          
+        ),
       ); //#When you use BoxFit.cover,
       //# the image is scaled to cover the entire widget's space
     });  
