@@ -23,9 +23,11 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
 void saveplace(){
   final enteredtitle=_titleController.text;
   if(enteredtitle.isEmpty) return;
-  else {
+
 ref.read(userPlacesNotifier.notifier).addPlace(enteredtitle);
-Navigator.of(context).pop;}
+Navigator.pop(context);  //!! This is the correct way to write logic to get back to previous screen
+///!! Do not write like Navigator.of.pop....
+
 }
 
 @override 
