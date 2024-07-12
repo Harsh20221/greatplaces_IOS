@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:greatplaces/models/place.dart';
 
-class PlaceListScreen extends StatelessWidget {
-  const PlaceListScreen({super.key, required this.place});
+class PlaceDetailScreen extends StatelessWidget {
+  const PlaceDetailScreen({super.key, required this.place});
   final Place place;
   @override
   Widget build(BuildContext context) {
