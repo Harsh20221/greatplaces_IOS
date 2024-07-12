@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:greatplaces/models/place.dart';
 import 'package:greatplaces/screens/places_detail.dart';
@@ -11,7 +12,7 @@ class PlaceListScreen extends StatelessWidget {
       return const Center(child: Text('No Places Saved Yet Please Enter Some'));
     } else {
       return ListView.builder(
-        itemBuilder: (ctx, index) => ListTile(
+        itemBuilder: (ctx, index) => CupertinoListTile(  ///*CHANGED WITH CUPERTINO STYLE LIST TILE*
           title: Text(places[index].title,
               style: Theme.of(context)
                   .textTheme

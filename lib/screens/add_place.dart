@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greatplaces/providers/user_places.dart';
@@ -52,11 +53,12 @@ Navigator.pop(context);  //!! This is the correct way to write logic to get back
                         .onSurface), //? colorscheme.onBackground is depracted so we use .onSurface Instead
               ),
               const SizedBox(height: 16),
+              ///ADD IMAGE LOGIC WILL GO HERE///
               ElevatedButton.icon(
                 onPressed:saveplace ,
                 label: Text('Add place'),///? In icon button child is renamed as label
-
-                icon: Icon(Icons.place),
+ 
+                icon: Icon(CupertinoIcons.placemark),///*CHANGED WITH CUPERTINO ICONS*
 
                 ///This is a icon type
               )
