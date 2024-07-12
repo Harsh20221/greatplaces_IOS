@@ -18,5 +18,5 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
   }
 }
 
-final userPlacesNotifier = StateNotifierProvider((ref) =>
+final userPlacesNotifier = StateNotifierProvider<UserPlacesNotifier,List<Place>>((ref) =>
     UserPlacesNotifier()); //? Here we are creating a new StateNotifierProvider that takes a reference and returns a new instance of UserPlacesNotifier
