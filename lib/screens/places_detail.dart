@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:greatplaces/models/place.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
-  const PlaceDetailScreen({super.key, required this.place});
-  final Place place;
+  const PlaceDetailScreen({super.key, required this.place}); //? Required places data is already pushed from placelist file's Navigator function method
+  final Place place; ///? This is where the pushed data is stored 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +15,6 @@ class PlaceDetailScreen extends StatelessWidget {
             .bodyLarge!
             .copyWith(color: Theme.of(context).colorScheme.onSurface),
       )),
-    );
-  }
+    body: Stack(children: [Image.file(place.image)],),); //? We recieve image from earlier screen's Navigator Method and this will get stored in the place list here and will get displayed  
+  } 
 }
