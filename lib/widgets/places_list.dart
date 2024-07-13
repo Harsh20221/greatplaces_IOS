@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:greatplaces/models/place.dart';
 import 'package:greatplaces/screens/places_detail.dart';
+import 'package:greatplaces/screens/add_place.dart';
+///* This file contains the lower list portion of hone screen where added places will get displayed
 
 class PlaceListScreen extends StatelessWidget {
   const PlaceListScreen({super.key, required this.places});
@@ -13,6 +15,7 @@ class PlaceListScreen extends StatelessWidget {
     } else {
       return ListView.builder(
         itemBuilder: (ctx, index) => CupertinoListTile(  ///*CHANGED WITH CUPERTINO STYLE LIST TILE*
+        leading: CircleAvatar(radius: 26,backgroundImage: FileImage(places[index].image)),
           title: Text(places[index].title,
               style: Theme.of(context)
                   .textTheme

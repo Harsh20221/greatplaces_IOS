@@ -4,7 +4,7 @@ import 'package:greatplaces/screens/add_place.dart';
 import 'package:greatplaces/widgets/places_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:greatplaces/providers/user_places.dart';
+////* This File Contains the upper half of the screen or we can say this file contains the appbar portion and image add part only 
 
 class PlacesScreen extends ConsumerWidget {
   const PlacesScreen({super.key});
