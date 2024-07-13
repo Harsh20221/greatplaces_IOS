@@ -15,6 +15,6 @@ class PlaceDetailScreen extends StatelessWidget {
             .bodyLarge!
             .copyWith(color: Theme.of(context).colorScheme.onSurface),
       )),
-    body: Stack(children: [Image.file(place.image)],),); //? We recieve image from earlier screen's Navigator Method and this will get stored in the place list here and will get displayed  
+    body: Stack(children: [Image.file(place.image,fit: BoxFit.cover,height: double.infinity,width: double.infinity,)],),); //? We recieve image from earlier screen's Navigator Method and this will get stored in the place list here and will get displayed  
   } 
 }
